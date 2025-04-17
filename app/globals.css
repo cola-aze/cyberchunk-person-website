@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00ff;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #00ffff;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+.glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(to bottom, transparent 0%, rgba(255, 0, 255, 0.2) 0.5%, transparent 1%);
+  background-size: 100% 100%;
+  animation: glitch-move 3s infinite linear;
+  pointer-events: none;
+}
+
+/* 复古机器人的锈蚀和磨损效果 */
+.rust-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E"),
+    radial-gradient(circle at 30% 40%, rgba(139, 69, 19, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(165, 42, 42, 0.4) 0%, transparent 50%);
+  mix-blend-mode: overlay;
+}
+
+/* 未来科技风机器人的悬浮线条效果 */
+.hover-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    rgba(0, 255, 255, 0.2) 1px,
+    transparent 2px,
+    transparent 10px
+  );
+  background-size: 100% 20px;
+  animation: hover-move 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes hover-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 20px;
+  }
+}
+
+@keyframes glitch-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+  }
+  4.16666667% {
+    clip: rect(91px, 9999px, 100px, 0);
+  }
+  8.33333333% {
+    clip: rect(74px, 9999px, 30px, 0);
+  }
+  12.5% {
+    clip: rect(23px, 9999px, 23px, 0);
+  }
+  16.66666667% {
+    clip: rect(68px, 9999px, 54px, 0);
+  }
+  20.83333333% {
+    clip: rect(57px, 9999px, 79px, 0);
+  }
+  25% {
+    clip: rect(46px, 9999px, 44px, 0);
+  }
+  29.16666667% {
+    clip: rect(93px, 9999px, 61px, 0);
+  }
+  33.33333333% {
+    clip: rect(75px, 9999px, 23px, 0);
+  }
+  37.5% {
+    clip: rect(47px, 9999px, 46px, 0);
+  }
+  41.66666667% {
+    clip: rect(45px, 9999px, 87px, 0);
+  }
+  45.83333333% {
+    clip: rect(47px, 9999px, 41px, 0);
+  }
+  50% {
+    clip: rect(36px, 9999px, 69px, 0);
+  }
+  54.16666667% {
+    clip: rect(30px, 9999px, 88px, 0);
+  }
+  58.33333333% {
+    clip: rect(19px, 9999px, 71px, 0);
+  }
+  62.5% {
+    clip: rect(54px, 9999px, 82px, 0);
+  }
+  66.66666667% {
+    clip: rect(23px, 9999px, 33px, 0);
+  }
+  70.83333333% {
+    clip: rect(63px, 9999px, 74px, 0);
+  }
+  75% {
+    clip: rect(96px, 9999px, 58px, 0);
+  }
+  79.16666667% {
+    clip: rect(79px, 9999px, 23px, 0);
+  }
+  83.33333333% {
+    clip: rect(57px, 9999px, 99px, 0);
+  }
+  87.5% {
+    clip: rect(22px, 9999px, 70px, 0);
+  }
+  91.66666667% {
+    clip: rect(67px, 9999px, 75px, 0);
+  }
+  95.83333333% {
+    clip: rect(10px, 9999px, 60px, 0);
+  }
+  100% {
+    clip: rect(19px, 9999px, 57px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+  }
+  4.16666667% {
+    clip: rect(84px, 9999px, 51px, 0);
+  }
+  8.33333333% {
+    clip: rect(91px, 9999px, 84px, 0);
+  }
+  12.5% {
+    clip: rect(20px, 9999px, 87px, 0);
+  }
+  16.66666667% {
+    clip: rect(99px, 9999px, 36px, 0);
+  }
+  20.83333333% {
+    clip: rect(4px, 9999px, 91px, 0);
+  }
+  25% {
+    clip: rect(63px, 9999px, 45px, 0);
+  }
+  29.16666667% {
+    clip: rect(23px, 9999px, 23px, 0);
+  }
+  33.33333333% {
+    clip: rect(69px, 9999px, 15px, 0);
+  }
+  37.5% {
+    clip: rect(13px, 9999px, 82px, 0);
+  }
+  41.66666667% {
+    clip: rect(17px, 9999px, 24px, 0);
+  }
+  45.83333333% {
+    clip: rect(44px, 9999px, 66px, 0);
+  }
+  50% {
+    clip: rect(35px, 9999px, 69px, 0);
+  }
+  54.16666667% {
+    clip: rect(51px, 9999px, 84px, 0);
+  }
+  58.33333333% {
+    clip: rect(21px, 9999px, 40px, 0);
+  }
+  62.5% {
+    clip: rect(89px, 9999px, 64px, 0);
+  }
+  66.66666667% {
+    clip: rect(46px, 9999px, 31px, 0);
+  }
+  70.83333333% {
+    clip: rect(49px, 9999px, 40px, 0);
+  }
+  75% {
+    clip: rect(44px, 9999px, 66px, 0);
+  }
+  79.16666667% {
+    clip: rect(98px, 9999px, 86px, 0);
+  }
+  83.33333333% {
+    clip: rect(53px, 9999px, 5px, 0);
+  }
+  87.5% {
+    clip: rect(21px, 9999px, 30px, 0);
+  }
+  91.66666667% {
+    clip: rect(45px, 9999px, 11px, 0);
+  }
+  95.83333333% {
+    clip: rect(68px, 9999px, 37px, 0);
+  }
+  100% {
+    clip: rect(20px, 9999px, 59px, 0);
+  }
+}
+
+.bg-grid-white\/5 {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.bg-grid-8 {
+  background-size: 8rem 8rem;
+}
