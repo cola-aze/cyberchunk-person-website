@@ -34,7 +34,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 英雄区域 */}
+      {/* 角色区域 */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-pink-900/20" />
